@@ -1,0 +1,5 @@
+<% flash[:errors].try(:each) do |error| %>
+  <div>
+    <%= error %>
+  </div>
+<% end %>
