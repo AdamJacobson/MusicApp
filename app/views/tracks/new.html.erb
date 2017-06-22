@@ -1,0 +1,15 @@
+<h1>Create a New Track</h1>
+
+<form class="" action="<%= new_track_url %>" method="post">
+  <%= auth_token %>
+
+  <label for="name">Track Name</label>
+  <input id="name" type="text" name="track[name]" value="">
+
+  <label for="album">Album</label>
+  <select id="album" name="track[album_id]">
+    <% @albums.try(:each) do |album| %>
+    <option value="<%= album.id%>"><%= album.name %></option>
+    <% end %>
+  </select>
+</form>

@@ -1,3 +1,14 @@
-<form action="index.html" method="post">
+<% action = (type == :sign_up ? user_url : session_url) %>
+<% button = (type == :sign_up ? "Sign Up" : "Sign In" ) %>
 
+<form action="<%= action %>" method="post">
+  <%= auth_token %>
+
+  <label for="email">Email</label>
+  <input id="email" type="text" name="user[email]" value="">
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="user[password]" value="">
+
+  <input type="submit" name="" value="Sign In">
 </form>

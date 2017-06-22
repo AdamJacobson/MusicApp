@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
+    user = User.find_by_credentials(params[:user][:email], params[:user][:password])
 
-    if @user
-      login!(@user)
-      redirect_to user_url(@user)
+    if user
+      login!(user)
+      redirect_to user_url(user)
     else
-      flash[:errors] = user.errors.full_messages
+      flash[:errors] = ["Email or password was incorrect"]
       render :new
     end
   end
