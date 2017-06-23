@@ -1,0 +1,24 @@
+<%
+  if band.id.nil?
+    _method = "POST"
+    _action = bands_url
+    _text = "Create Band"
+  else
+    _method = "PATCH"
+    _action = band_url(band)
+    _text = "Update Band"
+  end
+%>
+
+<h1><%= _text %></h1>
+
+<form action="<%= _action %>" method="post">
+  <%= auth_token %>
+
+  <input type="hidden" name="_method" value="<%= _method %>">
+
+  <label for="name">Band Name</label>
+  <input id="name" type="text" name="band[name]" value="<%= @band.name %>">
+
+  <input type="submit" name="" value="<%= _text %>">
+</form>

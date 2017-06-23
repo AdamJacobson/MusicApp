@@ -2,7 +2,8 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
-    @albums = Album.all
+    @all_albums = Album.all
+    @album = Album.find(params[:album_id])
   end
 
   def create
